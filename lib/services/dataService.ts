@@ -127,14 +127,15 @@ export const calculateStats = (programs: RadioProgram[]): RadioProgramStats => {
   };
 };
 
-export const formatDuration = (minutes: number): string => {
-  const hours = Math.floor(minutes / 60);
-  const mins = minutes % 60;
+export const formatDuration = (totalSeconds: number): string => {
+  const mins = Math.floor(totalSeconds / 60);
+  const secs = totalSeconds % 60;
 
-  if (hours > 0) {
-    return `${hours}时${mins}分`;
+  if (mins > 0) {
+    return `${mins}分${secs}秒`;
   }
-  return `${mins}分钟`;
+
+  return `${secs}秒`;
 };
 
 export const formatDate = (dateString: string): string => {
